@@ -68,6 +68,10 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FizzWare.NBuilder">
+      <HintPath>..\packages\NBuilder.3.0.1.1\lib\FizzWare.NBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -671,6 +675,7 @@
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Maximum.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Minimum.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Remove.cs" />
+    <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Search.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Serializability.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\TryGetValue.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTreeTests\Values.cs" />

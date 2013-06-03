@@ -304,6 +304,32 @@ namespace NGenerics.DataStructures.Trees
         #region ISearchTree<TKey,TValue> Members
 
         /// <inheritdoc />
+        public T Search(Func<T, int> comparisonPredicate)
+        {
+            if (tree == null)
+            {
+                return default(T);
+            }
+
+            var currentNode = tree;
+
+            while (currentNode != null)
+            {
+                var nodeResult = comparisonPredicate(currentNode.Data);
+
+                if (nodeResult == 0)
+                {
+                    return currentNode.Data;
+                }
+
+                currentNode = nodeResult < 0 ? currentNode.Left : currentNode.Right;
+            }
+
+            return default(T);
+
+        }
+
+        /// <inheritdoc />
         /// <example>
         /// <code source="..\..\Source\Examples\ExampleLibraryCSharp\DataStructures\Trees\BinarySearchTreeBaseExamples.cs" region="Minimum" lang="cs" title="The following example shows how to use the Minimum property."/>
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="Minimum" lang="vbnet" title="The following example shows how to use the Minimum property."/>

@@ -46,7 +46,7 @@ namespace NGenerics.DataStructures.Trees
         /// <code source="..\..\Source\Examples\ExampleLibraryVB\DataStructures\Trees\BinarySearchTreeBaseExamples.vb" region="DepthFirstTraversal" lang="vbnet" title="The following example shows how to use the DepthFirstTraversal method."/>
         /// </example>
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
-        void DepthFirstTraversal(OrderedVisitor<T> visitor);
+        void DepthFirstTraversal(OrderedVisitor<T> visitor);        
 
         /// <summary>
         /// Returns an enumerator that iterates through the collection.
@@ -61,5 +61,14 @@ namespace NGenerics.DataStructures.Trees
         [SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures")]
         [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
         IEnumerator<T> GetOrderedEnumerator();
+
+        /// <summary>
+        /// Search for item in the tree, using a delegate to determine a result
+        /// </summary>
+        /// <param name="comparisonPredicate">delegate that determines a search result.</param>
+        /// <remarks>the predicate must return 0 if the value is found, 
+        /// -1 if search value less than iterated node data, 1 otherwise</remarks>
+        /// <returns>search results or null if not found</returns>
+        T Search(Func<T, int> comparisonPredicate);
     }
 }
